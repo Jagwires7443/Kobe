@@ -57,7 +57,7 @@ public final class Constants {
   }
 
   public static final class AuxConstants {
-    public static final int kColorWheelMotorPort = 7;
+    public static final int kColorWheelMotorPort = 9;
     public static final int kIntakeMotorPort = 8;
     public static final int kTopFeederMotorPort = 11;
     public static final int kBottomFeederMotorPort = 9;
@@ -72,6 +72,7 @@ public final class Constants {
 
   public static final class JoystickButtons {
     public static final int kDriverControllerPort = 0;
+    public static final int kOperatorControllerPort = 1;
     public static final int kForwardAxis = 1;
     public static final int kTurnAxis = 2;
     public static final int kShooterAxis = 3;
@@ -79,15 +80,16 @@ public final class Constants {
     public static final int kShooterButton = 1;
     public static final int kTurboButton = 2;
     public static final int kSlowSpeedButton = 3;
-    public static final int kPistonDownButton = 4;
     public static final int kFullSpeedButton = 5;
-    public static final int kPistonUpButton = 6;
-    public static final int kIntakeButton = 7;
-    public static final int kReverseIntakeButton = 8;
-    public static final int kElevatorUpButton = 10;
-    public static final int kElevatorDownButton = 9;
-    public static final int kFeederUpButton = 11;
-    public static final int kFeederDownButton = 12;
+    public static final int kPistonUpButton = 11;
+    public static final int kPistonDownButton = 10;
+    public static final int kIntakeButton = 2;
+    public static final int kReverseIntakeButton = 4;
+    public static final int kElevatorUpButton = 3;
+    public static final int kElevatorDownButton = 1;
+    public static final int kFeederUpButton = 6;
+    public static final int kFeederDownButton = 5;
+    public static final int kColorWheelButton = 12;
   }
 
   public static final class LED {
