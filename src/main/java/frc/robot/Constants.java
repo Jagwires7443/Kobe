@@ -81,14 +81,15 @@ public final class Constants {
     public static final int kTurboButton = 2;
     public static final int kSlowSpeedButton = 3;
     public static final int kFullSpeedButton = 5;
-    public static final int kPistonUpButton = 11;
-    public static final int kPistonDownButton = 10;
+
     public static final int kIntakeButton = 2;
     public static final int kReverseIntakeButton = 4;
-    public static final int kElevatorUpButton = 3;
-    public static final int kElevatorDownButton = 1;
-    public static final int kFeederUpButton = 6;
-    public static final int kFeederDownButton = 5;
+    public static final int kClimberUpButton = 6;
+    public static final int kClimberDownButton = 1;
+    public static final int kFeederUpButton = 5;
+    public static final int kFeederDownButton = 3;
+    public static final int kPistonUpButton = 11;
+    public static final int kPistonDownButton = 10;
     public static final int kColorWheelButton = 12;
   }
 
