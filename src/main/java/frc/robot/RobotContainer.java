@@ -59,7 +59,7 @@ public class RobotContainer {
         Joystick m_driverController = new Joystick(JoystickButtons.kDriverControllerPort);
         Joystick m_operatorController = new Joystick(JoystickButtons.kOperatorControllerPort);
 
-        double shooterRPM = 2000;
+        double shooterRPM = 2000.0;
 
         public Command complexCommand() {
                 TrajectoryConfig config = new TrajectoryConfig(Constants.DriveConstants.kMaxVelocityMeters,
@@ -108,14 +108,30 @@ public class RobotContainer {
                                 .whileHeld(() -> m_shooter.runMotors(shooterRPM))
                                 .whenReleased(() -> m_shooter.stopMotors());
 
-                new JoystickButton(m_driverController, Constants.JoystickButtons.kTurboButton)
-                                .whenPressed(() -> m_robotDrive.setSpeed(0.99)).whenPressed(() -> shooterRPM = 4000);
+                new JoystickButton(m_driverController, Constants.JoystickButtons.kShooterBoostButton)
+                                .whenPressed(() -> {
+                                        shooterRPM = 3000.0;
+                                });
 
-                new JoystickButton(m_driverController, Constants.JoystickButtons.kFullSpeedButton)
-                                .whenPressed(() -> m_robotDrive.setSpeed(0.75)).whenPressed(() -> shooterRPM = 1700);
+                new JoystickButton(m_driverController, Constants.JoystickButtons.kShooterNormalButton)
+                                .whenPressed(() -> {
+                                        shooterRPM = 2000.0;
+                                });
 
-                new JoystickButton(m_driverController, Constants.JoystickButtons.kSlowSpeedButton)
-                                .whenPressed(() -> m_robotDrive.setSpeed(0.5)).whenPressed(() -> shooterRPM = 2000);
+                new JoystickButton(m_driverController, Constants.JoystickButtons.kTurboButton).whenPressed(() -> {
+                        m_robotDrive.setSpeed(0.99);
+                        shooterRPM = 4000.0;
+                });
+
+                new JoystickButton(m_driverController, Constants.JoystickButtons.kFullSpeedButton).whenPressed(() -> {
+                        m_robotDrive.setSpeed(0.75);
+                        shooterRPM = 1700.0;
+                });
+
+                new JoystickButton(m_driverController, Constants.JoystickButtons.kSlowSpeedButton).whenPressed(() -> {
+                        m_robotDrive.setSpeed(0.5);
+                        shooterRPM = 2000.0;
+                });
 
                 new JoystickButton(m_operatorController, Constants.JoystickButtons.kIntakeButton)
                                 .whileHeld(() -> m_intake.runIntake(-Constants.AuxConstants.kIntakeMotorSpeed),

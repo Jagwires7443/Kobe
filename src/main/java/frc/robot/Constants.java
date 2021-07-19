@@ -81,6 +81,8 @@ public final class Constants {
     public static final int kTurboButton = 2;
     public static final int kSlowSpeedButton = 3;
     public static final int kFullSpeedButton = 5;
+    public static final int kShooterBoostButton = 6;
+    public static final int kShooterNormalButton = 4;
 
     public static final int kIntakeButton = 2;
     public static final int kReverseIntakeButton = 4;

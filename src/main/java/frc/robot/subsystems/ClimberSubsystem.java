@@ -31,6 +31,8 @@ public class ClimberSubsystem extends SubsystemBase {
         climbPiston = new DoubleSolenoid(Constants.PneumaticConstants.kPistonForwardPort,
                 Constants.PneumaticConstants.kPistonReversePort);
         pressureSensor = new AnalogInput(Constants.AuxConstants.kPressureSensorPort);
+
+        lowerClimber();
     }
 
     @Override
