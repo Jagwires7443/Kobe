@@ -6,14 +6,14 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj.controller.RamseteController;
-import edu.wpi.first.wpilibj.geometry.Pose2d;
-import edu.wpi.first.wpilibj.geometry.Rotation2d;
+import edu.wpi.first.math.controller.RamseteController;
+import edu.wpi.first.math.geometry.Pose2d;
+import edu.wpi.first.math.geometry.Rotation2d;
 import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
-import edu.wpi.first.wpilibj.trajectory.Trajectory;
-import edu.wpi.first.wpilibj.trajectory.TrajectoryConfig;
-import edu.wpi.first.wpilibj.trajectory.TrajectoryGenerator;
+import edu.wpi.first.math.trajectory.Trajectory;
+import edu.wpi.first.math.trajectory.TrajectoryConfig;
+import edu.wpi.first.math.trajectory.TrajectoryGenerator;
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.Command;
@@ -50,7 +50,8 @@ public class RobotContainer {
         private final IntakeSubsystem m_intake = new IntakeSubsystem();
         private final ClimberSubsystem m_climber = new ClimberSubsystem();
         // private final VisionSubsystem m_vision = new VisionSubsystem();
-        private final Compressor m_compressor = new Compressor(Constants.PneumaticConstants.pcmPort);
+        private final Compressor m_compressor = new Compressor(Constants.PneumaticConstants.pcmPort,
+                        edu.wpi.first.wpilibj.PneumaticsModuleType.CTREPCM);
         private final LEDSubsystem m_5vled = new LEDSubsystem(Constants.LED.k5vLEDPWMPort);
         private final ColorSubsystem m_color = new ColorSubsystem();
         // private final LEDSubsystem m_12vled = new
@@ -85,7 +86,7 @@ public class RobotContainer {
         public RobotContainer() {
                 // Configure the button bindings
                 configureButtonBindings();
-                m_compressor.start();
+                m_compressor.enableDigital();
                 m_robotDrive.setDefaultCommand(new RunCommand(
                                 () -> m_robotDrive.arcadeDrive(
                                                 m_driverController.getRawAxis(Constants.JoystickButtons.kForwardAxis),

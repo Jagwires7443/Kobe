@@ -8,19 +8,19 @@ import frc.robot.Constants;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import edu.wpi.first.wpilibj.SPI;
-import edu.wpi.first.wpilibj.controller.PIDController;
-import edu.wpi.first.wpilibj.controller.SimpleMotorFeedforward;
+import edu.wpi.first.math.controller.PIDController;
+import edu.wpi.first.math.controller.SimpleMotorFeedforward;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
-import edu.wpi.first.wpilibj.geometry.Pose2d;
-import edu.wpi.first.wpilibj.geometry.Rotation2d;
-import edu.wpi.first.wpilibj.kinematics.DifferentialDriveKinematics;
-import edu.wpi.first.wpilibj.kinematics.DifferentialDriveOdometry;
-import edu.wpi.first.wpilibj.kinematics.DifferentialDriveWheelSpeeds;
+import edu.wpi.first.math.geometry.Pose2d;
+import edu.wpi.first.math.geometry.Rotation2d;
+import edu.wpi.first.math.kinematics.DifferentialDriveKinematics;
+import edu.wpi.first.math.kinematics.DifferentialDriveOdometry;
+import edu.wpi.first.math.kinematics.DifferentialDriveWheelSpeeds;
 
 import com.kauailabs.navx.frc.AHRS;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
-import com.revrobotics.CANEncoder;
+import com.revrobotics.RelativeEncoder;
 
 public class DriveSubsystem extends SubsystemBase {
 
@@ -28,13 +28,13 @@ public class DriveSubsystem extends SubsystemBase {
       MotorType.kBrushless);
   private CANSparkMax backLeftMotor = new CANSparkMax(Constants.DriveConstants.kLeftMotorBackPort,
       MotorType.kBrushless);
-  private CANEncoder leftEncoder = frontLeftMotor.getEncoder();
+  private RelativeEncoder leftEncoder = frontLeftMotor.getEncoder();
 
   private CANSparkMax frontRightMotor = new CANSparkMax(Constants.DriveConstants.kRightMotorFrontPort,
       MotorType.kBrushless);
   private CANSparkMax backRightMotor = new CANSparkMax(Constants.DriveConstants.kRightMotorBackPort,
       MotorType.kBrushless);
-  private CANEncoder rightEncoder = frontRightMotor.getEncoder();
+  private RelativeEncoder rightEncoder = frontRightMotor.getEncoder();
 
   AHRS gyro = new AHRS(SPI.Port.kMXP);
 

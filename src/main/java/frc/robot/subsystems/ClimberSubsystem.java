@@ -28,7 +28,8 @@ public class ClimberSubsystem extends SubsystemBase {
     public ClimberSubsystem() {
         climberMotor = new CANSparkMax(Constants.AuxConstants.kClimberMotorPort, MotorType.kBrushless);
         // climberMotor.configFactoryDefault();
-        climbPiston = new DoubleSolenoid(Constants.PneumaticConstants.kPistonForwardPort,
+        climbPiston = new DoubleSolenoid(edu.wpi.first.wpilibj.PneumaticsModuleType.CTREPCM,
+                Constants.PneumaticConstants.kPistonForwardPort,
                 Constants.PneumaticConstants.kPistonReversePort);
         pressureSensor = new AnalogInput(Constants.AuxConstants.kPressureSensorPort);
 

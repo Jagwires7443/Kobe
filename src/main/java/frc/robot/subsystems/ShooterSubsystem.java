@@ -11,18 +11,18 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import com.revrobotics.CANSparkMax;
+import com.revrobotics.CANSparkMax.ControlType;
 import com.revrobotics.CANSparkMax.IdleMode;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 import com.revrobotics.CANSparkMaxLowLevel.PeriodicFrame;
-import com.revrobotics.CANEncoder;
-import com.revrobotics.ControlType;
-import com.revrobotics.CANPIDController;
+import com.revrobotics.RelativeEncoder;
+import com.revrobotics.SparkMaxPIDController;
 
 public class ShooterSubsystem extends SubsystemBase {
 
     private final CANSparkMax leftShooterMotor, rightShooterMotor;
-    private CANEncoder leftShooterEncoder, rightShooterEncoder;
-    private CANPIDController leftPIDController, rightPIDController;
+    private RelativeEncoder leftShooterEncoder, rightShooterEncoder;
+    private SparkMaxPIDController leftPIDController, rightPIDController;
     public double setPoint;
 
     public ShooterSubsystem() {
